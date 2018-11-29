@@ -14,14 +14,14 @@ final class Sha512Test extends TestCase
      * @covers \Lcobucci\JWT\Signer\Ecdsa::create
      * @covers \Lcobucci\JWT\Signer\Ecdsa::__construct
      *
-     * @uses \Lcobucci\JWT\Signer\Ecdsa\Asn1
+     * @uses \Lcobucci\JWT\Signer\Ecdsa\ECSignature
      */
     public function createShouldReturnAValidInstance(): void
     {
         $signer = Sha512::create();
 
         self::assertInstanceOf(Sha512::class, $signer);
-        self::assertAttributeInstanceOf(Asn1::class, 'manipulator', $signer);
+        self::assertAttributeInstanceOf(ECSignature::class, 'manipulator', $signer);
     }
 
     /**
