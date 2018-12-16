@@ -48,7 +48,7 @@ final class ECSignature implements PointsManipulator
 
         return pack(
             'H*',
-            self::ASN1_SEQUENCE . ($Rl + $Sl + 4 > 128 ? '81' : '') . dechex($Rl + $Sl + 4)
+            self::ASN1_SEQUENCE . ($Rl + $Sl + 4 > 128 ? self::ASN1_LENGTH_2BYTES : '') . dechex($Rl + $Sl + 4)
             . self::ASN1_INTEGER . dechex($Rl) . $R
             . self::ASN1_INTEGER . dechex($Sl) . $S
         );
