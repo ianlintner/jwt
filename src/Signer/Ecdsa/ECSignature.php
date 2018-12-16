@@ -26,11 +26,11 @@ use function unpack;
 
 final class ECSignature implements PointsManipulator
 {
-    private const ASN1_SEQUENCE = '30';
-    private const ASN1_INTEGER = '02';
-    private const ASN1_LENGTH_2BYTES = '81';
+    private const ASN1_SEQUENCE          = '30';
+    private const ASN1_INTEGER           = '02';
+    private const ASN1_LENGTH_2BYTES     = '81';
     private const ASN1_BIG_INTEGER_LIMIT = '7f';
-    private const ASN1_NEGATIVE_INTEGER = '00';
+    private const ASN1_NEGATIVE_INTEGER  = '00';
 
     public function toEcPoint(string $signature, int $partLength): string
     {
@@ -89,7 +89,8 @@ final class ECSignature implements PointsManipulator
         if (mb_substr($data, 0, 2, '8bit') > self::ASN1_BIG_INTEGER_LIMIT) {
             return self::ASN1_NEGATIVE_INTEGER . $data;
         }
-        while (mb_substr($data, 0, 2, '8bit') === self::ASN1_NEGATIVE_INTEGER && mb_substr($data, 2, 2, '8bit') <= self::ASN1_BIG_INTEGER_LIMIT) {
+        while (mb_substr($data, 0, 2, '8bit') === self::ASN1_NEGATIVE_INTEGER
+            && mb_substr($data, 2, 2, '8bit') <= self::ASN1_BIG_INTEGER_LIMIT) {
             $data = mb_substr($data, 2, null, '8bit');
         }
 
@@ -98,7 +99,8 @@ final class ECSignature implements PointsManipulator
 
     private static function retrievePositiveInteger(string $data): string
     {
-        while (mb_substr($data, 0, 2, '8bit') === self::ASN1_NEGATIVE_INTEGER && mb_substr($data, 2, 2, '8bit') > self::ASN1_BIG_INTEGER_LIMIT) {
+        while (mb_substr($data, 0, 2, '8bit') === self::ASN1_NEGATIVE_INTEGER
+            && mb_substr($data, 2, 2, '8bit') > self::ASN1_BIG_INTEGER_LIMIT) {
             $data = mb_substr($data, 2, null, '8bit');
         }
 

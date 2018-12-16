@@ -6,9 +6,7 @@ namespace Lcobucci\JWT\FunctionalTests;
 use InvalidArgumentException;
 use Lcobucci\JWT\Configuration;
 use Lcobucci\JWT\Keys;
-use Lcobucci\JWT\Signer\Ecdsa;
 use Lcobucci\JWT\Signer\Ecdsa\Sha256;
-use Lcobucci\JWT\Signer\Ecdsa\Sha384;
 use Lcobucci\JWT\Signer\Ecdsa\Sha512;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Token;
@@ -17,8 +15,6 @@ use Lcobucci\JWT\Validation\Constraint\SignedWith;
 use Lcobucci\JWT\Validation\InvalidToken;
 use PHPUnit\Framework\TestCase;
 use const PHP_EOL;
-use function hex2bin;
-use function sprintf;
 
 class EcdsaTokenTest extends TestCase
 {

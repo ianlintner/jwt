@@ -15,7 +15,6 @@ use function sprintf;
 
 class RFC6978VectorTest extends TestCase
 {
-
     /**
      * @see https://tools.ietf.org/html/rfc6979#appendix-A.2.5
      * @see https://tools.ietf.org/html/rfc6979#appendix-A.2.6
