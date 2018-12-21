@@ -1,6 +1,6 @@
 {
-    "name": "lcobucci/jwt",
-    "description": "A simple library to work with JSON Web Token and JSON Web Signature",
+    "name": "ianlintner/jwt",
+    "description": "Fork! A simple library to work with JSON Web Token and JSON Web Signature",
     "type": "library",
     "authors": [
         {
